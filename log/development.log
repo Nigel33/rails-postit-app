@@ -24132,3 +24132,85 @@ Processing by SessionsController#create as HTML
   Rendered layouts/_navigation.html.erb (8.0ms)
   Rendered layouts/_messages.html.erb (0.4ms)
 Completed 200 OK in 61ms (Views: 50.9ms | ActiveRecord: 1.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUserIdToPosts (20190426142913)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "posts" ADD "user_id" integer[0m
+SQLite3::SQLException: duplicate column name: user_id: ALTER TABLE "posts" ADD "user_id" integer
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUserIdToPosts (20190426142913)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "posts" ADD "user_id" integer[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20190426142913"]]
+  [1m[36m (5.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by PostsController#index as HTML
+  Rendered shared/_content_title.html (1.0ms)
+  Rendered categories/_category.html.erb (2.5ms)
+  Rendered posts/_post.html.erb (292.1ms)
+  Rendered collection (0.1ms)
+  Rendered posts/_post.html.erb (28.7ms)
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (18.7ms)
+  Rendered categories/_category.html.erb (1.3ms)
+  Rendered posts/_post.html.erb (25.1ms)
+  Rendered categories/_category.html.erb (2.7ms)
+  Rendered posts/_post.html.erb (25.2ms)
+  Rendered posts/index.html.erb within layouts/application (417.0ms)
+  Rendered layouts/_navigation.html.erb (8.5ms)
+  Rendered layouts/_messages.html.erb (2.1ms)
+Completed 200 OK in 1086ms (Views: 885.7ms | ActiveRecord: 19.3ms)
+Processing by SessionsController#new as HTML
+  Rendered shared/_content_title.html (3.3ms)
+  Rendered sessions/new.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_navigation.html.erb (10.2ms)
+  Rendered layouts/_messages.html.erb (1.7ms)
+Completed 200 OK in 88ms (Views: 82.7ms | ActiveRecord: 0.6ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PEDXFfXZoStrhw7XcRUn1HcRvxg/OX5tGfVGpg+m6Gk=", "username"=>"bobby", "password"=>"[FILTERED]", "commit"=>"Login"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 172ms (ActiveRecord: 0.7ms)
+Processing by PostsController#index as HTML
+  Rendered shared/_content_title.html (0.5ms)
+  Rendered categories/_category.html.erb (2.5ms)
+  Rendered posts/_post.html.erb (36.9ms)
+  Rendered collection (0.1ms)
+  Rendered posts/_post.html.erb (26.9ms)
+  Rendered collection (0.2ms)
+  Rendered posts/_post.html.erb (110.4ms)
+  Rendered categories/_category.html.erb (1.3ms)
+  Rendered posts/_post.html.erb (27.6ms)
+  Rendered categories/_category.html.erb (0.9ms)
+  Rendered posts/_post.html.erb (25.4ms)
+  Rendered posts/index.html.erb within layouts/application (243.6ms)
+  Rendered layouts/_navigation.html.erb (5.2ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 325ms (Views: 269.2ms | ActiveRecord: 15.8ms)
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered categories/_category.html.erb (2.9ms)
+  Rendered shared/_content_title.html (0.3ms)
+  Rendered shared/_error_alert.html.erb (8.3ms)
+  Rendered comments/_comment.html.erb (26.2ms)
+  Rendered comments/_comment.html.erb (11.9ms)
+  Rendered posts/show.html.erb within layouts/application (232.0ms)
+  Rendered layouts/_navigation.html.erb (4.9ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 264ms (Views: 253.1ms | ActiveRecord: 5.0ms)
+Processing by PostsController#index as HTML
+  Rendered shared/_content_title.html (0.8ms)
+  Rendered categories/_category.html.erb (1.8ms)
+  Rendered posts/_post.html.erb (40.2ms)
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (20.8ms)
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (12.6ms)
+  Rendered categories/_category.html.erb (0.8ms)
+  Rendered posts/_post.html.erb (14.9ms)
+  Rendered categories/_category.html.erb (0.8ms)
+  Rendered posts/_post.html.erb (15.0ms)
+  Rendered posts/index.html.erb within layouts/application (122.3ms)
+  Rendered layouts/_navigation.html.erb (4.8ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 198ms (Views: 147.5ms | ActiveRecord: 11.1ms)
