@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show, :update, :vote]
   before_action :require_user, except: [:show, :index]
+  before_action :require_creator, only: [:edit, :update]
 
   def index
   	@posts = Post.all.sort_by {|post| post.total_votes}.reverse
@@ -30,8 +31,6 @@ class PostsController < ApplicationController
   end
 
   def update 
-    @post = Post.find(params[:id])
-    
     if @post.update(post_params) 
       flash['notice'] = "Your Post has been successfully updated"
       redirect_to post_path(@post)
@@ -56,12 +55,16 @@ class PostsController < ApplicationController
 
   private 
 
+  def require_creator 
+    access_denied unless logged_in? and (current_user == @post.user || current_user.admin?)
+  end 
+
   def post_params 
   	params.require(:post).permit(:title, :url, :description, category_ids: [])
   end 
 
   def set_post 
-    @post = Post.find(params[:id])
+    @post = Post.find_by(slug: params[:id])
   end 
 
 end
